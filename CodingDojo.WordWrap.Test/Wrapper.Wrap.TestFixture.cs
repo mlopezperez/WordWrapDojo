@@ -106,5 +106,18 @@ namespace CodingDojo.WordWrap.Test
 
             Assert.AreEqual("Better\nthree\nhours\ntoo\nsoon", result);
         }
+
+        [Test]
+        public void Wrap_WhenCalledWithMultipleWordsBiggerThanColumns_MustReturnProperResult()
+        {
+            // The longest word has the same length than the column size
+            const string input = "Better three hours too soon than a minute too late.";
+            const int columns = 5;
+            IWrapper wrapper = new WordWrapper();
+
+            var result = wrapper.Wrap(input, columns);
+
+            Assert.AreEqual("Bette\nr\nthree\nhours\ntoo\nsoon\nthan\na\nminute\ntoo\nlate.", result);
+        }
     }
 }
