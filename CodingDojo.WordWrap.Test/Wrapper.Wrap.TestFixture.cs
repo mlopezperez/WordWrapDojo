@@ -81,5 +81,17 @@ namespace CodingDojo.WordWrap.Test
 
             Assert.AreEqual("Better", result);
         }
+
+        [Test]
+        public void Wrap_WhenCalledWithMultipleWordsSmallerThanColumns_MustReturnProperResult()
+        {
+            const string input = "Better three hours too soon";
+            const int columns = 7;
+            IWrapper wrapper = new WordWrapper();
+
+            var result = wrapper.Wrap(input, columns);
+
+            Assert.AreEqual("Better\nthree\nhours\ntoo\nsoon", result);
+        }
     }
 }
