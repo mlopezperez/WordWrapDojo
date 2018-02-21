@@ -15,5 +15,15 @@ namespace CodingDojo.WordWrap.Test
 
             Assert.Throws<ArgumentNullException>(() => wrapper.Wrap(input, columns));
         }
+
+        [Test]
+        public void Wrap_WhenCalledWithEmptyInput_MustReturnArgException()
+        {
+            const string input = "";
+            const int columns = 0;
+            IWrapper wrapper = new WordWrapper();
+
+            Assert.Throws<ArgumentNullException>(() => wrapper.Wrap(input, columns));
+        }
     }
 }
