@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace CodingDojo.WordWrap.Test
 {
@@ -6,9 +7,13 @@ namespace CodingDojo.WordWrap.Test
     public class WrapTestFixture
     {
         [Test]
-        public void Test()
+        public void Wrap_WhenCalledWithNullInput_MustReturnArgException()
         {
-            Assert.That(true, Is.True);
+            const string input = null;
+            const int columns = 0;
+            IWrapper wrapper = new WordWrapper();
+
+            Assert.Throws<ArgumentNullException>(() => wrapper.Wrap(input, columns));
         }
     }
 }
