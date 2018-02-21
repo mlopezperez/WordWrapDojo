@@ -5,7 +5,7 @@ namespace CodingDojo.WordWrap
     {
         public string Wrap(string input, int columns)
         {
-            if (String.IsNullOrEmpty(input) || columns < 0) 
+            if (String.IsNullOrEmpty(input) || columns <= 0) 
             {
                 throw new ArgumentNullException();
             }
