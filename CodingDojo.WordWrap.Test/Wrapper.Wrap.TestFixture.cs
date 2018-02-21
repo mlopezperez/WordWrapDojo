@@ -45,5 +45,17 @@ namespace CodingDojo.WordWrap.Test
 
             Assert.Throws<ArgumentNullException>(() => wrapper.Wrap(input, columns));
         }
+
+        [Test]
+        public void Wrap_WhenCalledWithAWordSmallerThanColumns_MustReturnTheWord()
+        {
+            const string input = "A";
+            const int columns = 2;
+            IWrapper wrapper = new WordWrapper();
+
+            var result = wrapper.Wrap(input, columns);
+
+            Assert.AreEqual("A", result);
+        }
     }
 }
