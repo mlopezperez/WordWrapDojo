@@ -12,17 +12,56 @@ namespace CodingDojo.WordWrap
                 throw new ArgumentNullException();
             }
 
+            var result = string.Empty;
             var builder = new StringBuilder();
             var words = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach(var word in words)
+
+            if (words.Length > 1)
             {
-                builder.Append(word);
-                builder.AppendLine();
+                foreach (var word in words)
+                {
+                    if (word.Length > columns)
+                    {
+                        var splittedWord = SplitWordByFixedColumnSize(word, columns);
+                        builder.Append(splittedWord);
+                    }
+                    else
+                    {
+                        builder.Append(word);    
+                    }
+                    builder.AppendLine();
+                }
+
+                var outputWithEndingLineTerminator = builder.ToString();
+                result = outputWithEndingLineTerminator.Substring(0, outputWithEndingLineTerminator.Length - 1);
+            }
+            else
+            {
+                builder.Append(words[0]);
+                result = builder.ToString();
             }
 
+            return result;
+        }
 
-            var outputWithEndingLineTerminator = builder.ToString();
-            return outputWithEndingLineTerminator.Substring(0, outputWithEndingLineTerminator.Length - 1);
+        private string SplitWordByFixedColumnSize(string word, int columns)
+        {
+            if (word.Length <= columns)
+            {
+                return word;
+            }
+
+            var builder = new StringBuilder();
+            for (var i = 0; i < word.Length; i++)
+            {
+                var currentChar = word[i];
+                builder.Append(currentChar);
+                if ((i+1) % columns == 0)
+                {
+                    builder.AppendLine();
+                }
+            }
+            return builder.ToString();
         }
     }
 }
