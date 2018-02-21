@@ -7,7 +7,7 @@ namespace CodingDojo.WordWrap
     {
         public string Wrap(string input, int columns)
         {
-            if (String.IsNullOrEmpty(input) || columns <= 0) 
+            if (String.IsNullOrEmpty(input) || columns <= 0)
             {
                 throw new ArgumentNullException();
             }
@@ -17,41 +17,38 @@ namespace CodingDojo.WordWrap
 
             if (words.Length > 1)
             {
-                var builder = new StringBuilder();
-                foreach (var word in words)
-                {
-                    if (word.Length > columns)
-                    {
-                        var splittedWord = SplitWordByFixedColumnSize(word, columns);
-                        builder.Append(splittedWord);
-                    }
-                    else
-                    {
-                        builder.Append(word);    
-                    }
-                    builder.AppendLine();
-                }
-
-                var outputWithEndingLineTerminator = builder.ToString();
-                result = outputWithEndingLineTerminator.Substring(0, outputWithEndingLineTerminator.Length - 1);
+                result = ProcessMultipleWordsWithFixedColumnSize(words, columns);
             }
             else
             {
                 var firstWord = words[0];
-                if (firstWord.Length > columns)
-                {
-                    result = SplitWordByFixedColumnSize(firstWord, columns);
-                }
-                else 
-                {
-                    result = firstWord;
-                }
+                result = ProcessSingleWordWithFixedColumnSize(firstWord, columns);
             }
-
             return result;
         }
 
-        private string SplitWordByFixedColumnSize(string word, int columns)
+        private string ProcessMultipleWordsWithFixedColumnSize(string[] words, int columns)
+        {
+            var builder = new StringBuilder();
+            foreach (var word in words)
+            {
+                if (word.Length > columns)
+                {
+                    var splittedWord = ProcessSingleWordWithFixedColumnSize(word, columns);
+                    builder.Append(splittedWord);
+                }
+                else
+                {
+                    builder.Append(word);
+                }
+                builder.AppendLine();
+            }
+
+            var outputWithEndingLineTerminator = builder.ToString();
+            return outputWithEndingLineTerminator.Substring(0, outputWithEndingLineTerminator.Length - 1);
+        }
+
+        private string ProcessSingleWordWithFixedColumnSize(string word, int columns)
         {
             if (word.Length <= columns)
             {
@@ -63,7 +60,7 @@ namespace CodingDojo.WordWrap
             {
                 var currentChar = word[i];
                 builder.Append(currentChar);
-                if ((i+1) % columns == 0)
+                if ((i + 1) % columns == 0)
                 {
                     builder.AppendLine();
                 }
