@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingDojo.WordWrap", "CodingDojo.WordWrap\CodingDojo.WordWrap.csproj", "{CE664091-7E6A-43D4-A86D-A64A36A2332D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingDojo.WordWrap.Test", "CodingDojo.WordWrap.Test\CodingDojo.WordWrap.Test.csproj", "{67E808F7-51F6-4371-9264-445A57BF6D47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE664091-7E6A-43D4-A86D-A64A36A2332D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE664091-7E6A-43D4-A86D-A64A36A2332D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE664091-7E6A-43D4-A86D-A64A36A2332D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE664091-7E6A-43D4-A86D-A64A36A2332D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E808F7-51F6-4371-9264-445A57BF6D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E808F7-51F6-4371-9264-445A57BF6D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E808F7-51F6-4371-9264-445A57BF6D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E808F7-51F6-4371-9264-445A57BF6D47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1ED4F562-1010-452A-9959-E69BD18454ED}
+	EndGlobalSection
+EndGlobal
