@@ -49,25 +49,37 @@ namespace CodingDojo.WordWrap.Test
         [Test]
         public void Wrap_WhenCalledWithAWordSmallerThanColumns_MustReturnTheWord()
         {
-            const string input = "A";
-            const int columns = 2;
+            const string input = "Better";
+            const int columns = 7;
             IWrapper wrapper = new WordWrapper();
 
             var result = wrapper.Wrap(input, columns);
 
-            Assert.AreEqual("A", result);
+            Assert.AreEqual("Better", result);
         }
 
         [Test]
         public void Wrap_WhenCalledWithAWordWithSameLengthThanColumns_MustReturnTheWord()
         {
-            const string input = "A";
-            const int columns = 1;
+            const string input = "Better";
+            const int columns = 6;
             IWrapper wrapper = new WordWrapper();
 
             var result = wrapper.Wrap(input, columns);
 
-            Assert.AreEqual("A", result);
+            Assert.AreEqual("Better", result);
+        }
+
+        [Test]
+        public void Wrap_WhenCalledWithAWordBiggerThanColumns_MustReturnTheWord()
+        {
+            const string input = "Better";
+            const int columns = 5;
+            IWrapper wrapper = new WordWrapper();
+
+            var result = wrapper.Wrap(input, columns);
+
+            Assert.AreEqual("Better", result);
         }
     }
 }
