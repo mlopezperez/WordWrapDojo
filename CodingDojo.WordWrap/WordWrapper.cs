@@ -9,7 +9,7 @@ namespace CodingDojo.WordWrap
         {
             if (String.IsNullOrEmpty(input) || columns <= 0)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentException();
             }
 
             var result = string.Empty;

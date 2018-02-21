@@ -13,7 +13,7 @@ namespace CodingDojo.WordWrap.Test
             const int columns = 0;
             IWrapper wrapper = new WordWrapper();
 
-            Assert.Throws<ArgumentNullException>(() => wrapper.Wrap(input, columns));
+            Assert.Throws<ArgumentException>(() => wrapper.Wrap(input, columns));
         }
 
         [Test]
@@ -23,7 +23,7 @@ namespace CodingDojo.WordWrap.Test
             const int columns = 0;
             IWrapper wrapper = new WordWrapper();
 
-            Assert.Throws<ArgumentNullException>(() => wrapper.Wrap(input, columns));
+            Assert.Throws<ArgumentException>(() => wrapper.Wrap(input, columns));
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace CodingDojo.WordWrap.Test
             const int columns = -1;
             IWrapper wrapper = new WordWrapper();
 
-            Assert.Throws<ArgumentNullException>(() => wrapper.Wrap(input, columns));
+            Assert.Throws<ArgumentException>(() => wrapper.Wrap(input, columns));
         }
 
         [Test]
@@ -43,7 +43,7 @@ namespace CodingDojo.WordWrap.Test
             const int columns = 0;
             IWrapper wrapper = new WordWrapper();
 
-            Assert.Throws<ArgumentNullException>(() => wrapper.Wrap(input, columns));
+            Assert.Throws<ArgumentException>(() => wrapper.Wrap(input, columns));
         }
 
         [Test]
