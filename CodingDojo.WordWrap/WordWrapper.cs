@@ -13,11 +13,11 @@ namespace CodingDojo.WordWrap
             }
 
             var result = string.Empty;
-            var builder = new StringBuilder();
             var words = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
             if (words.Length > 1)
             {
+                var builder = new StringBuilder();
                 foreach (var word in words)
                 {
                     if (word.Length > columns)
@@ -37,8 +37,15 @@ namespace CodingDojo.WordWrap
             }
             else
             {
-                builder.Append(words[0]);
-                result = builder.ToString();
+                var firstWord = words[0];
+                if (firstWord.Length > columns)
+                {
+                    result = SplitWordByFixedColumnSize(firstWord, columns);
+                }
+                else 
+                {
+                    result = firstWord;
+                }
             }
 
             return result;
