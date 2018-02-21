@@ -71,7 +71,7 @@ namespace CodingDojo.WordWrap.Test
         }
 
         [Test]
-        public void Wrap_WhenCalledWithAWordBiggerThanColumns_MustReturnTheWord()
+        public void Wrap_WhenCalledWithAWordBiggerThanColumns_MustReturnProperResult()
         {
             const string input = "Better";
             const int columns = 5;
@@ -79,7 +79,7 @@ namespace CodingDojo.WordWrap.Test
 
             var result = wrapper.Wrap(input, columns);
 
-            Assert.AreEqual("Better", result);
+            Assert.AreEqual("Bette\nr", result);
         }
 
         [Test]
