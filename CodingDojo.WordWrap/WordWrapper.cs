@@ -5,10 +5,11 @@ namespace CodingDojo.WordWrap
     {
         public string Wrap(string input, int columns)
         {
-            if (String.IsNullOrEmpty(input)) 
+            if (String.IsNullOrEmpty(input) || columns < 0) 
             {
                 throw new ArgumentNullException();
             }
+
             return input;
         }
     }
