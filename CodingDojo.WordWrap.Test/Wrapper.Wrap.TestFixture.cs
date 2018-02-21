@@ -57,5 +57,17 @@ namespace CodingDojo.WordWrap.Test
 
             Assert.AreEqual("A", result);
         }
+
+        [Test]
+        public void Wrap_WhenCalledWithAWordWithSameLengthThanColumns_MustReturnTheWord()
+        {
+            const string input = "A";
+            const int columns = 1;
+            IWrapper wrapper = new WordWrapper();
+
+            var result = wrapper.Wrap(input, columns);
+
+            Assert.AreEqual("A", result);
+        }
     }
 }
